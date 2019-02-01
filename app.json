@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/companyDetail/companyDetail",
+    "pages/exhibitionList/exhibitionList",
+    "pages/job/job",
+    "pages/exhibition/exhibition",
+    "pages/jobDetail/jobDetail",
+    "pages/logs/logs",
+    "pages/live/live",
+    "pages/projectDetail/projectDetail",
+    "pages/loadApp/loadApp"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#04A2AF",
+    "navigationBarTextStyle": "#fff"
+  },
+  "networkTimeout": {
+    "request": 4000,
+    "onnecSocket": 20000,
+    "downloadFile": 20000
+  }
+}

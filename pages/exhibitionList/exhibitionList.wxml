@@ -1,0 +1,16 @@
+<!--pages/exhibitionList/exhibitionList.wxml-->
+<view class='search'>
+  <input placeholder='搜索' placeholder-style='font-size:26rpx;color:#999;' bindinput='getInputVal'>
+    <image src='../../images/sou@2x.png'></image>
+  </input>
+  <view class='btn' bindtap='searchCompany'>搜索</view>
+</view>
+<view class='content'>
+  <view class='content-item' wx:for="{{wxhibitionList}}" wx:key="index" data-id="{{item.id}}" bindtap='routerJump'>
+    <image src="{{'https://shrenjun.com'+item.business_logo}}" mode='aspectFit'></image>
+    <text>{{item.business_name}}</text>
+  </view>
+  <view class='empty-img' wx:if="{{showImg}}">
+    <image src="../../images/empty-img.png"></image>
+  </view>
+</view>

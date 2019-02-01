@@ -1,0 +1,30 @@
+<!--pages/jobDetail/jobDetail.wxml-->
+<import src="../../libs/wxParse/wxParse.wxml"/>
+<view class='main'>
+  <!-- <view class='header'>
+    <view class='header-title'>地坪工程师</view>
+    <view class='header-text'>江苏凯迪欧化工有限公司</view>
+  </view>
+  <view class='content'>
+    <view class='content-header'>职位详情</view>
+    <view class='word duty'>
+      <view class='word-head'>岗位职责:</view>
+      <view>1、组织指定项目总体规划和施工设计,全面负责施工产品及施工工艺。</view>
+      <view>2、负责施工现场使用物料,即使解决产品质量问题。</view>
+      <view>3、组织做好各阶段质量验收工作。</view>
+    </view>
+    
+    <view class='word require'>
+      <view class='word-head'>任职要求:</view>
+      <view>1、组织指定项目总体规划和施工设计,全面负责施工产品及施工工艺。</view>
+      <view>2、负责施工现场使用物料,即使解决产品质量问题。</view>
+      <view>3、组织做好各阶段质量验收工作。</view>
+    </view>
+
+    <view class='word weal'>
+      <view class='word-head'>工作时间：8:00-5:00</view>
+      <view>福利待遇：五险，餐补，全勤奖，冬季双休，绩效奖金。</view>
+    </view>
+  </view> -->
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

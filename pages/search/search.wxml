@@ -1,0 +1,44 @@
+<!--pages/search/search.wxml-->
+<page>
+
+  <view class='search-header'>
+    <input placeholder='请输入商家名' placeholder-class='place-style' bindinput='writeIn' focus='{{autoFocus}}' value='{{iptval}}'>
+      <icon type='search' size="14px"></icon>
+    </input>
+    <button bindtap='jumpToPage'>{{buttonText}}</button>
+  </view>
+
+  <view class='search-history'>
+    <view class='history-top'>
+      <text>搜索历史</text>
+      <view class='deleat-box' bindtap='deleteHistory'>
+        <image src='../../images/deleat.png' mode='aspectFit'></image>
+      </view>
+    </view>
+    <view class='history-content'>
+      <text class='history-item' 
+      wx:for="{{historyList}}" 
+      wx:key="{{index}}"
+      bindtap='checkHistory'
+      data-content = '{{item}}'>{{item}}</text>
+    </view>
+  </view>
+
+  <view class='search-hot'>
+    <view class='hot-top'>
+      <text>热搜榜</text>
+      <view class='hotImgBox'>
+        <image src='../../images/hotImg.png' mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class='hot-item-container'>
+      <view class='hot-item' wx:for="{{hotSearchList}}" wx:key="{{item.id}}" bindtap='checkHistory' data-content="{{item.name}}">
+        <text>{{item.name}}</text>
+        <view class='topImgBox' wx:if="{{item.ishot==1?true:false}}">
+          <image src='../../images/istop.png' mode='aspectFit'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</page>

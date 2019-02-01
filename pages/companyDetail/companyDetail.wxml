@@ -1,0 +1,122 @@
+<import src="../../libs/wxParse/wxParse.wxml"/>
+<view class='abstract-content' wx:if="{{num==1?true:false}}">
+  <view class='page'>
+    <swiper id="swiper" interval='4000' autoplay>
+      <swiper-item wx:if="{{offlineImg}}">
+        <image src='../../images/bgimg.png'></image>
+      </swiper-item>
+      <swiper-item wx:for="{{bannerList}}" wx:key="index">
+        <image src='{{"https://shrenjun.com"+item.url}}'></image>
+      </swiper-item>
+    </swiper>
+    <view class='companyName'>
+      {{business_name}}
+    </view>
+    <view class='content'>
+      <template is="wxParse" data="{{wxParseData:abstract.nodes}}"/>
+    </view>
+  </view>
+</view>
+
+
+<view class='product-content' wx:if="{{num==2?true:false}}">
+  <view class='page'>
+    <view class='head'>
+      <view class='shu'></view>
+      <view class='title'>产品展示</view>
+    </view>
+
+    <view class='content'>
+      <view class='content-item'
+      wx:for="{{productList}}" 
+      bindtap='routerDetail'
+      data-id="{{item.id}}"
+      wx:key="{{item.id}}"
+      >
+        <image src="{{'https://shrenjun.com'+item.img_url}}"></image>
+        <view class='word'>{{item.describe}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='empty-img' style='overflow:hidden;' wx:if="{{emptyImg}}">
+    <image src="../../images/empty-img.png"></image>
+  </view>
+</view>
+
+<view class="project-content" wx:if="{{num==3?true:false}}">
+  <view class='page'>
+    <view class='head'>
+      <view class='shu'></view>
+      <view class='title'>工程展示</view>
+    </view>
+
+    <view class='content'>
+      <view class='content-item' wx:for="{{sysCaseList}}" data-id="{{item.id}}" bindtap='routerDetail' wx:key="{{item.id}}">
+        <image src="{{'https://shrenjun.com'+item.img_url}}"></image>
+        <view class='word'>{{item.describe}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='empty-img' style='overflow:hidden;' wx:if="{{emptyImg1}}">
+    <image src="../../images/empty-img.png"></image>
+  </view>
+</view>
+
+<view class="contact-content" wx:if="{{num==4?true:false}}">
+  <view class='page'>
+    <view class='head'>
+      <view class='shu'></view>
+      <view class='title'>联系方式</view>
+    </view>
+
+    <view class='container'>
+      <view class='content-item' bindtap='callCompany'>
+        <image src='../../images/lx_phone@2x.png' class='phone'></image>
+        <view>{{phone}}</view>
+      </view>
+      <view class='content-item'>
+        <image src='../../images/lx_email@2x.png' class='email'></image>
+        <view>{{email}}</view>
+      </view>
+      <view class='content-item'>
+        <image src='../../images/lx_address@2x.png' class='address'></image>
+        <view>{{address}}</view>
+      </view>
+    </view>
+
+    <map
+  id="map"
+  longitude="113.324520"
+  latitude="23.099994"
+  scale="14"
+  controls="{{controls}}"
+  markers="{{markers}}"
+  polyline="{{polyline}}"
+  show-location
+  style="width: 100%; height: 300px;"
+></map>
+  </view>
+</view>
+
+<view class='self-tabbar'>
+  <view class='tab-abstract tab' data-num = '1' bindtap='checkBar'>
+    <image src="{{num == 1?'../../images/zt_btn_company_select@2x.png':'../../images/zt_btn_company@2x.png'}}"></image>
+    <view class='{{num==1?"tabbar-word active":"tabbar-word"}}'>简介</view>
+  </view>
+
+  <view class='tab-product tab' data-num = '2' bindtap='checkBar'>
+    <image src="{{num == 2?'../../images/zt_btn_product_select@2x.png':'../../images/zt_btn_product@2x.png'}}"></image>
+    <view class='{{num==2?"tabbar-word active":"tabbar-word"}}'>产品</view>
+  </view>
+
+  <view class='tab-project tab' data-num = '3' bindtap='checkBar'>
+    <image src="{{num == 3?'../../images/zt_btn_case_select@2x.png':'../../images/zt_btn_case@2x.png'}}"></image>
+    <view class='{{num==3?"tabbar-word active":"tabbar-word"}}'>工程</view>
+  </view>
+
+  <view class='tab-contact tab' data-num = '4' bindtap='checkBar'>
+    <image src="{{num == 4?'../../images/zt_btn_contact_select@2x.png':'../../images/zt_btn_contact@2x.png'}}"></image>
+    <view class='{{num==4?"tabbar-word active":"tabbar-word"}}'>联系</view>
+  </view>
+</view>

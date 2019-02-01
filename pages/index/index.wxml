@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>-->
+  <!-- 搜索 -->
+  <view class='search'>
+    <view class='replaceInput' bindtap='searchCompany'>
+      <icon type='search' size='16px'></icon>
+      请输入商家名
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <swiper id="swiper" interval='4000' autoplay>
+    <swiper-item wx:if="{{offlineImg}}">
+      <image src='../../images/bgimg.png'></image>
+    </swiper-item>
+    <swiper-item wx:for="{{swiperList}}" wx:key="index">
+      <image src='{{"https://shrenjun.com"+item.url}}'></image>
+    </swiper-item>
+  </swiper>
+  <!-- icons列表 -->
+  <view class='icons bottom-size'>
+    <view class='icons-item' bindtap='jump' wx:for="{{iconsItemList}}" data-id="{{item.id}}" wx:key="{{item.id}}">
+      <image src='{{item.imgUrl}}'></image>
+      <view class='title'>{{item.title}}</view>
+    </view>
+  </view>
+  <!-- 直播 -->
+  <!-- <view class='live bottom-size'>
+    <view class='live-title'>徐工长施工队的工作直播</view>
+    <video objectFit="fill" src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'></video>
+    <view class='live-start-time'>
+      开播时间：2018-12-18  11:00  
+    </view>
+  </view> -->
+
+  <!-- <view class='live bottom-size' wx:for="{{liveList}}" wx:key="index">
+    <view class='live-title'>{{item.broadcast_name}}</view>
+    <video objectFit="fill" src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'></video>
+    <view class='live-start-time'>
+      {{item.broadcast_date}} 
+    </view>
+  </view> -->
+
+
+  <!-- 地坪分区 -->
+  <view class='partition bottom-size'>
+    <view class='partition-item' wx:for="{{selfData}}" wx:key="index" data-id="{{index}}" bindtap='jumpToList'>
+      <image src='{{item.imgUrl}}'></image>
+      <view class='partition-title'>{{item.title}}</view>
+    </view>
+  </view>
+  
+  <!-- 公司列表 -->
+  <scroll-view class='company' scroll-y>
+    <view class='company-item' wx:for="{{companyList}}" wx:key="index" data-id="{{item.id}}" bindtap='jumpCompanyDe'>
+      <view class='item-header'>
+        <view class='small-img-box'>
+          <image src='{{"https://shrenjun.com"+item.business_logo}}'  mode='aspectFit'></image>
+        </view>
+        <view class='company-name'>{{item.business_name}}</view>
+      </view>
+      <view class='company-img'>
+        <image src="{{item.business_img_url}}" lazy-load></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class='loadApp'>
+  <navigator url='../loadApp/loadApp'>
+    <view class='specil'>下载</view>
+    <view style='line-height:0rpx;'>App</view>
+  </navigator>
+</view>
+

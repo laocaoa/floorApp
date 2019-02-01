@@ -1,0 +1,33 @@
+<!--pages/projectDetail/projectDetail.wxml-->
+<import src="../../libs/wxParse/wxParse.wxml"/>
+<view class='page'>
+  <view class='head'>
+    <view class='shu'></view>
+    <view class='title'>{{name}}</view>
+  </view>
+
+  <view class='bigimg'>
+    <image src='{{"https://shrenjun.com"+img_url}}'></image>
+  </view>
+</view>
+
+<view class='description'>
+  <!-- <view class='descriptionbBox'>
+    <view class='yuan'></view>
+    <view class='descriptionTitle'>产品描述</view>
+  </view>
+  <view class='descriptionContent'>
+  聚合物地面、结构水泥灌浆、修补材料、混凝土硬化剂、环氧灌浆、交通承载处防水材料以及相关水泥封闭材料等。
+  </view> -->
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+
+<!-- <view class='description'>
+  <view class='descriptionbBox'>
+    <view class='yuan'></view>
+    <view class='descriptionTitle'>优点</view>
+  </view>
+  <view class='descriptionContent'>
+  聚合物地面、结构水泥灌浆、修补材料、混凝土硬化剂、环氧灌浆、交通承载处防水材料以及相关水泥封闭材料等。
+  </view>
+</view> -->

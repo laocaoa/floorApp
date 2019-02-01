@@ -1,0 +1,28 @@
+<!--pages/job/job.wxml-->
+<!-- tabbar -->
+<!-- <web-view src="https://mp.weixin.qq.com/">点击</web-view> -->
+<view class='header-tab'>
+  <view class='{{checkNumber==0?"active tab tab-left":"tab tab-left"}}' data-id="0" bindtap='checkOne'>企业招聘</view>
+  <view class='{{checkNumber==1?"active tab tab-right":"tab tab-right"}}' data-id="1" bindtap='checkTwo'>施工队招聘</view>
+</view>
+
+<!-- content -->
+<view class='content'>
+  <view class='content-item' wx:for="{{jobMessage}}" wx:key="item.id" bindtap='jumpDetail' data-id="{{item.id}}">
+    <view class='position'>
+      <view>{{item.title}}</view>
+      <view class='setTop' wx:if="{{item.istop==1?true:false}}">置顶</view>
+    </view> 
+    <view class='company'>{{item.user_name}}</view>
+  </view>
+</view>
+
+<!-- hideimg -->
+<view class='empty-img' wx:if="{{showImg}}">
+  <image src='../../images/empty-img.png'></image>
+</view>
+
+<!-- hidetips -->
+<view class='tips' wx:if="{{showTips}}">
+  ——————我也是有底线的——————
+</view>

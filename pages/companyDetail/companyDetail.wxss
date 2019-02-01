@@ -1,0 +1,182 @@
+/* pages/companyDetail/companyDetail.wxss */
+@import "../../libs/wxParse/wxParse.wxss";
+.self-tabbar{
+  width: 750rpx;
+  height: 97rpx;
+  background: #F6F6F6;
+  /* background: pink; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.self-tabbar image{
+  position: absolute;
+  top: 0;
+  right: 8rpx;
+}
+.tab{
+  width: 50rpx;
+  height: 70rpx;
+  color: #303131;
+  font-size: 22rpx;
+  position: relative;
+}
+.tab-abstract image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.tabbar-word{
+  position: absolute;
+  bottom: 0;
+}
+.tab-product image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.tab-project image{
+  width: 35rpx;
+  height: 36rpx;
+}
+.tab-contact image{
+  width: 33rpx;
+  height: 32rpx;
+}
+.active{
+  color: #04A2AF;
+}
+.head{
+  border-bottom: 1rpx solid #A5D8D5;
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0 28rpx;
+}
+.shu{
+  width:4rpx;
+  height: 28rpx;
+  background: #A5D8D5;
+  margin-right: 20rpx;
+}
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 29rpx;
+}
+.title{
+  font-size: 30rpx;
+  color: #333;
+}
+
+/* abstract */
+.page{
+  overflow: hidden;
+  padding: 0 30rpx 97rpx;
+}
+.wxParse-style{
+  display: none;
+}
+#swiper{
+  width: 690rpx;
+  height: 300rpx;
+  margin-top: 40rpx;
+}
+#swiper image{
+  width: 100%;
+  height: 100%;
+}
+.companyName{
+  font-size: 30rpx;
+  color: #212121;
+  text-align: center;
+  border-bottom: 1rpx solid #A5D8D5;
+  padding: 40rpx 0 28rpx;
+}
+.content{
+  color: #707070;
+  font-size: 28rpx;
+  padding-top: 32rpx;
+  line-height: 50rpx;
+}
+
+/* product */
+.product-content .content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 29rpx;
+}
+.product-content .title{
+  font-size: 30rpx;
+  color: #333;
+}
+.product-content .content-item{
+  width: 330rpx;
+}
+.product-content .content-item image{
+  width: 100%;
+  height: 239rpx;
+  border-radius: 12rpx;
+}
+.empty-img{
+  width: 335rpx;
+  height: 436rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.empty-img image{
+  width: 100%;
+  height: 100%;
+}
+/* project */
+.project-content .content-item{
+  width: 330rpx;
+}
+.project-content .content-item image{
+  width: 100%;
+  height: 239rpx;
+  border-radius: 12rpx;
+}
+.project-content .word{
+  font-size: 24rpx;
+  color: #707070;
+  margin: 26rpx 0;
+  text-align: center;
+}
+
+
+/* contact us */
+
+.contact-content .container{
+  font-size: 28rpx;
+  color: #333;
+}
+.contact-content .phone{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 15rpx;
+}
+.contact-content .email{
+  width: 28rpx;
+  height: 21rpx;
+  margin-right: 15rpx;
+}
+.contact-content .address{
+  width: 23rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+.contact-content .content-item{
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 1rpx dashed #D3D4D4;
+}

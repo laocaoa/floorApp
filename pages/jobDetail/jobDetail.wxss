@@ -1,0 +1,31 @@
+/* pages/jobDetail/jobDetail.wxss */
+@import "../../libs/wxParse/wxParse.wxss";
+.main{
+  padding: 0 30rpx;
+}
+.header{
+  height: 200rpx;
+  border-bottom: 1rpx solid #C9ECF0;
+  padding-top: 52rpx;
+  box-sizing: border-box;
+}
+.header-title{
+  font-size: 34rpx;
+  color: #222;
+  margin: 0 0 30rpx;
+}
+.header-text{
+  font-size: 26rpx;
+  color: #444;
+}
+.content-header{
+  font-size: 28rpx;
+  color: #333;
+  margin: 36rpx 0 0;
+}
+.word{
+  font-size: 26rpx;
+  color: #444;
+  line-height: 24px;
+  margin-top: 48rpx;
+}

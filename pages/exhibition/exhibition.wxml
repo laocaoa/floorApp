@@ -1,0 +1,7 @@
+<!--pages/exhibition/exhibition.wxml-->
+<view class='partition bottom-size'>
+  <view class='partition-item' wx:for="{{selfData}}" wx:key="index" bindtap='jumpexiList' data-id="{{index}}">
+    <image src='{{item.imgUrl}}'></image>
+    <view class='partition-title'>{{item.title}}</view>
+  </view>
+</view>
