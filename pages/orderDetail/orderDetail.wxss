@@ -1,0 +1,128 @@
+page{
+  background: #F1F1F1;
+  box-sizing: border-box;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+}
+.container{
+  position: relative;
+}
+.bg-img{
+  width: 100%;
+  height: 370rpx;
+}
+.notice-container{
+  position: absolute;
+  top: 0;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 120rpx;
+  width: 400rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.notice-container image{
+  width: 80rpx;
+  height: 80rpx; 
+}
+.notice-word{
+  font-size: 48rpx;
+  margin-right: 18rpx;
+}
+.message-container{
+  background: #fff;
+  width: 710rpx;
+  position: absolute;
+  top: 310rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.address-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-bottom: 18rpx solid #F1F1F1;
+}
+.address-container image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.address-content{
+  width: 570rpx;
+}
+.order-container{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.order-container image{
+  width: 180rpx;
+  height: 180rpx;
+  float: left;
+}
+.text-word{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:14rpx 0 4rpx 20rpx;
+  overflow: hidden;
+  height: 166rpx;
+}
+.image-text{
+  border-bottom: 1rpx solid #F1F1F1;
+  padding-bottom: 30rpx;
+}
+.price-number{
+  display: flex;
+  justify-content: space-between;
+}
+.red-font{
+  color: #FF0000!important;
+}
+.font-hui{
+  color: #999;
+}
+.size{
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+.size view{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.size view:last-child{
+  margin: 0;
+}
+.size view text:last-child{
+  color: #999;
+}
+.btn-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30rpx;
+}
+.btn-container view{
+  width:200rpx;
+  height:80rpx;
+  border-radius:10rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.btn-container view:first-child{
+  color: #333;
+  background: #F1F1F1;
+  margin-right: 30rpx;
+}
+.btn-container view:last-child{
+  color: #fff;
+  background: #EB4B2D;
+}

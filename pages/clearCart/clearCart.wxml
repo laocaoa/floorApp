@@ -1,0 +1,89 @@
+<!--pages/clearCart/clearCart.wxml-->
+<view class='cover' wx:if="{{showCover}}">
+  <view class='shadow'></view>
+  <view class='pay'>
+    <view class='pay-title'>
+      <image src='../../images/close_light@2x.png' bindtap='closeCover'></image>
+      <text>确认付款</text>
+    </view>
+    <view class='pay-money'>
+      <text class='pay-rmb'>￥</text>
+      <text>{{totalPrice}}</text>
+    </view>
+    <view class='pay-style'>
+      <text>付款方式</text>
+      <view style='display:flex;align-items:center;'>
+        <image src='../../images/wxpay.png' class="wxpay-logo"></image>
+        <text>微信支付</text>
+      </view>
+    </view>
+
+    <view class='pay-btn'>立即付款</view>
+  </view>
+</view>
+<view class='container'>
+  <view class='address-item'>
+    <view class='address-content'>
+      <view class='address-message'>
+        <view class='user-name'>习惯近身平A</view>
+        <view class='user-phone'>13596830654</view>
+      </view>
+
+      <view class='address'>
+        吉林省长春市朝阳区南湖街道卫星路7440号远创国际A座802室
+      </view>
+    </view>
+
+    <view class='edit' bindtap='jumpManageAddress'>
+      <image src='../../images/bianji.png' mode='aspectFit'></image>
+    </view>
+    
+    <image src='../../images/address-tiao.png' class='beautify-tiao'></image>
+  </view>
+  
+
+  <view class="main">
+    <view wx:if="{{hasList}}">
+      <view class="cart-box">
+        <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+          <image class="cart-thumb" src="{{item.image}}"></image>
+          <view class="cart-pro-name">{{item.goodsName}}</view>
+          <view class="cart-pro-price"><text class="cart-rmb">￥</text>{{item.sale}}</view>
+          <view class="cart-count-box">
+            <view class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</view>
+            <view class="cart-count-num">{{item.carCount}}</view>
+            <view class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</view>
+          </view>
+        </view>
+
+        <view class='express'>
+          <text>配送方式</text>
+          <view class='express-right'>
+            <text>快递   免邮</text>
+            <image src='../../images/rightarrow.png'></image>
+          </view>
+        </view>
+
+        <view class='remarks express'>
+          <text>买家留言：</text>
+          <input placeholder='选填'></input>
+        </view>
+
+        <view class='total express'>
+          <view style='margin-right:30rpx'>共{{carts.length}}件商品</view>
+          <view style='color:#FF0000'>小计：￥{{totalPrice}}元</view>
+        </view>
+      </view>
+
+      <view class="cart-footer">
+        <view class='clearing' bindtap='openCover'>提交订单</view>
+        <text class="cart-toatl-price">合计：<text class='sepcil-font'><text class='cart-rmb'>￥</text>{{totalPrice}}</text></text>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+  </view>
+
+</view>
+

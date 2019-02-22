@@ -1,0 +1,33 @@
+<!--pages/addAddress/addAddress.wxml-->
+<view class='container'>
+  <view class='container-item'>
+    <input placeholder='收货人' placeholder-class='holder-style' bindinput='writeName' maxlength='10'></input>
+    <image src='../../images/person.png'></image>
+  </view>
+
+  <view class='container-item'>
+    <input placeholder='手机号码' placeholder-class='holder-style' bindinput='writePhoneNumber' maxlength='11'></input>
+  </view>
+
+  <view class='container-item'>
+    <!-- <view class='specil'>所在地区</view> -->
+    <view class="tui-picker-content">
+        <picker bindchange="changeRegin" mode = "region" value="{{region}}">
+          <view class="tui-picker-detail">{{region[0]}}{{region[1]}}{{normalTxt}}</view>
+        </picker>
+    </view>
+    <image src='../../images/rightarrow.png'></image>
+  </view>
+
+  <view class='container-item'>
+    <textarea placeholder='详细地址：如道路、门牌号、小区、楼栋号、单元室等' placeholder-class='holder-style' bindinput='writeAddress'></textarea>
+  </view>  
+
+  <view class='container-item handle' bindtap='checkDefault'>
+    <view>设为默认地址</view>
+    <image src='{{ifcheck?"../../images/circle-check.png":"../../images/circle.png"}}'></image>
+  </view>
+
+  <view class='container-item save' bindtap='saveAddress'>保存</view>
+</view>
+

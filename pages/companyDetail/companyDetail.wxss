@@ -4,7 +4,6 @@
   width: 750rpx;
   height: 97rpx;
   background: #F6F6F6;
-  /* background: pink; */
   position: fixed;
   bottom: 0;
   left: 0;
@@ -16,7 +15,9 @@
 .self-tabbar image{
   position: absolute;
   top: 0;
-  right: 8rpx;
+  right: 0;
+  left: 0;
+  margin: auto;
 }
 .tab{
   width: 50rpx;
@@ -24,6 +25,7 @@
   color: #303131;
   font-size: 22rpx;
   position: relative;
+  text-align: center;
 }
 .tab-abstract image{
   width: 36rpx;
@@ -32,6 +34,9 @@
 .tabbar-word{
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .tab-product image{
   width: 36rpx;
@@ -83,6 +88,8 @@
   width: 690rpx;
   height: 300rpx;
   margin-top: 40rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
 }
 #swiper image{
   width: 100%;
@@ -179,4 +186,8 @@
   height: 120rpx;
   line-height: 120rpx;
   border-bottom: 1rpx dashed #D3D4D4;
+}
+
+map{
+  margin-top:14rpx; 
 }

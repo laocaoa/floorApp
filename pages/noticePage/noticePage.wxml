@@ -1,0 +1,16 @@
+<!--pages/noticePage/noticePage.wxml-->
+<view class='container'>
+  <image src='../../images/lan-bg@2x.png' class='bg-img'></image>
+  <view class='notice-container'>
+    <image src='../../images/bingo.png'></image>
+    <view class='notice-word'>
+      <view class='title'>{{titleWord}}</view>
+      <view class='content'>{{titleContent}}</view>
+    </view>
+  </view>
+
+  <view class='btn-container'>
+    <view bindtap='backIndex'>返回首页</view>
+    <view bindtap='checkOrder'>查看订单</view>
+  </view>
+</view>

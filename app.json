@@ -1,6 +1,16 @@
 {
   "pages": [
+    "pages/store/store",
+    "pages/starGrade/starGrade",
     "pages/index/index",
+    "pages/orderDetail/orderDetail",
+    "pages/clearCart/clearCart",
+    "pages/noticePage/noticePage",
+    "pages/addAddress/addAddress",
+    "pages/manageAddress/manageAddress",
+    "pages/editAddress/editAddress",
+    "pages/evaluate/evaluate",
+    "pages/goodDetail/goodDetail",
     "pages/search/search",
     "pages/companyDetail/companyDetail",
     "pages/exhibitionList/exhibitionList",
@@ -11,6 +21,8 @@
     "pages/live/live",
     "pages/projectDetail/projectDetail",
     "pages/loadApp/loadApp"
+    
+    
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -18,7 +30,7 @@
     "navigationBarTextStyle": "#fff"
   },
   "networkTimeout": {
-    "request": 4000,
+    "request": 10000,
     "onnecSocket": 20000,
     "downloadFile": 20000
   }

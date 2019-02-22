@@ -1,0 +1,29 @@
+<!--pages/starGrade/starGrade.wxml-->
+<view class='container'>
+  <view class='content'>
+    <image class='good-img' src='../../images/huwai.png'></image>
+    <view>描述相符</view>
+    <view class='star-box'>
+      <image src="{{isCheck>0?'../../images/star-check.png':'../../images/star.png'}}" data-id="1" bindtap="checkStraNumber"></image>
+      <image src="{{isCheck>1?'../../images/star-check.png':'../../images/star.png'}}" data-id="2" bindtap="checkStraNumber"></image>
+      <image src="{{isCheck>2?'../../images/star-check.png':'../../images/star.png'}}" data-id="3" bindtap="checkStraNumber"></image>
+      <image src="{{isCheck>3?'../../images/star-check.png':'../../images/star.png'}}" data-id="4" bindtap="checkStraNumber"></image>
+      <image src="{{isCheck>4?'../../images/star-check.png':'../../images/star.png'}} " data-id="5" bindtap="checkStraNumber"></image>
+    </view>
+
+    <view>{{evaluate}}</view>
+  </view>
+
+  <textarea placeholder='商品你期待吗？说说它的优点和不足的地方吧' placeholder-class='holder-style' bindinput='writeEvalute' maxlength='200'>
+  <view class='maxLength'>{{nowNumber}}/{{maxNumber}}</view>
+  </textarea>
+
+  <view class='anonymous' bindtap='hideName'>
+    <view>匿名</view>
+    <image src='{{ifHideName?"../../images/circle-check.png":"../../images/circle.png"}}'></image>
+  </view>
+
+  <view class='submitEvaluteBtn' bindtap='submitEvalute'>
+    发表
+  </view>
+</view>

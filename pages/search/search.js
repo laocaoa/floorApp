@@ -115,10 +115,6 @@ Page({
           } else {
             //取第一项的id
             let id = res.data.page.rows[0].id
-            app.companyId = res.data.page.rows[0].id
-            // wx.switchTab({
-            //   url: '../abstract/abstract',
-            // })
             wx.navigateTo({
               url: '../companyDetail/companyDetail?id='+id,
             })

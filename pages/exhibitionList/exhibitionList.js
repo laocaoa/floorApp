@@ -55,7 +55,6 @@ Page({
         businessType: business_type
       },
       success (res) {
-        console.log(res)
         if(res.statusCode == 200) {
           if(res.data.page.rows.length==0){
             if(current == 1){
@@ -65,7 +64,6 @@ Page({
             }
           }else{
             for (var i = 0; i < res.data.page.rows.length; i++) {
-              console.log(res.data.page.rows[i])
               replaceList.push(res.data.page.rows[i])
             }
             that.setData({
@@ -98,12 +96,7 @@ Page({
     })
   },
   routerJump (e) {
-    console.log(e.currentTarget.dataset.id);
     let id = e.currentTarget.dataset.id;
-    app.companyId = id;
-    // wx.switchTab({
-    //   url: '../abstract/abstract',
-    // })
     wx.navigateTo({
       url: '../companyDetail/companyDetail?id='+id,
     })
@@ -123,7 +116,6 @@ Page({
         businessType: business_type
       },
       success(res) {
-        console.log(res)
         if (res.statusCode == 200) {
           if (res.data.page.rows.length == 0) {
             wx.showToast({
@@ -133,7 +125,6 @@ Page({
           } else {
             replaceList = [];
             for (var i = 0; i < res.data.page.rows.length; i++) {
-              console.log(res.data.page.rows[i])
               replaceList.push(res.data.page.rows[i])
             }
             that.setData({

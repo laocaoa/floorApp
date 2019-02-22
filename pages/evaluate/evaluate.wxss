@@ -1,0 +1,102 @@
+/* pages/evaluate/evaluate.wxss */
+.classify{
+  padding: 20rpx 20rpx 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 10rpx solid #F1F1F1;
+}
+.classify view{
+  background:rgba(241,241,241,1);
+  border-radius:10rpx;
+  padding: 0 28rpx;
+  text-align: center;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(68,68,68,1);
+  margin:0 16rpx 12rpx 0;
+}
+.classify .active{
+  background:rgba(235,75,45,1);
+  color: #fff;
+}
+.content{
+  padding: 0 22rpx 88rpx;
+}
+.evaluate-item{
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #F1F1F1;
+  position: relative;
+}
+.user-logo{
+  width:80rpx;
+  height:80rpx;
+  border-radius:10000rpx;
+  overflow: hidden;
+  float: left;
+}
+.user-logo image{
+  width:100%;
+  height: 100%;
+}
+.name-star{
+  padding-left: 20rpx;
+  overflow: hidden;
+}
+.user-name{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(68,68,68,1);
+}
+.star-number image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 12rpx;
+}
+.evaluate-time{
+  position: absolute;
+  right: 0;
+  top: 30rpx;
+  font-size:24rpx;
+  font-family:San-Francisco-Text-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+}
+.word{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:48rpx;
+  margin-top: 30rpx;
+}
+.bottom-btn{
+  width: 750rpx;
+  height: 88rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 80rpx;
+  display: flex;
+  background: #fff;
+  padding: 0 10rpx 8rpx;
+  box-sizing: border-box;
+}
+.bottom-btn view{
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  width: 50%;
+}
+.add-cart{
+  background:rgba(250,108,31,1);
+}
+.buy-now{
+  background:rgba(231,10,36,1);
+}

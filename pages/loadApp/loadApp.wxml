@@ -1,2 +1,2 @@
 <!--pages/loadApp/loadApp.wxml-->
-<web-view src="https://www.shrenjun.com/download/index.html"></web-view>
+<web-view src="https://www.shrenjun.com/download/index.html#wechat_redirect"></web-view>

@@ -1,0 +1,78 @@
+<!--pages/goodDetail/goodDetail.wxml-->
+<import src="../../libs/wxParse/wxParse.wxml"/>
+<view class='hide-tabbar' wx:if="{{hidetab}}">
+  <view bindtap='scrollToGood' data-id="1" class="{{isActive==1?'active':''}}">商品</view>
+  <view bindtap='scrollToEvaluate' data-id="2" class="{{isActive==2?'active':''}}">评价</view>
+  <view bindtap='scrollToDetail' data-id="3" class="{{isActive==3?'active':''}}">详情</view>
+</view>
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" style="height:1117rpx;" scroll-with-animation="true" bindscroll="bindscroll">
+  <view id="good">
+    <scroll-view>
+      <swiper autoplay="auto" interval="3000" duration="500" bindchange="swiperChange">
+        <block wx:for="{{bannerList}}" wx:for-index="index" wx:key="index">
+          <swiper-item>
+            <view class="ar_coverpath">
+              <image src="{{bannerList[index].img}}" mode="aspectFill" />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!--  实现点击选中样式  -->
+      <view class="dots">
+        <view>{{swiperCurrent+1}}</view>
+        <view>/{{bannerList.length}}</view>
+      </view>
+    </scroll-view>
+    
+    <view class='good-message'>
+      <view class='message-top'>
+        <view class='price'>
+          <text>￥</text>
+          <view class="price-num">{{showPrice}}</view>
+        </view>
+        <view class='share'>
+          <image src='../../images/share@2x.png'></image>
+          <view>分享</view>
+        </view>
+      </view>
+      <view class='good-name'>{{goodName}}</view>
+      <view class='good-detail-message'>
+        <view>快递：{{kuaidi}}</view>
+        <view>销量：{{xiaoliang}}</view>
+        <view>库存：{{kucun}}</view>
+        <view>{{position}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view id="evaluate" class='evaluate-container'>
+    <view class='evaluate-title'>
+      <view class='title-word'>评价</view>
+      <view class='evaluate-number'>共{{talkSize}}条</view>
+    </view>
+    <view class='evaluate-content'>
+      <view class='evaluate-item' wx:for="{{pingjiaList}}" wx:if="{{index<2}}" wx:key="index">
+        <view class='user-logo'>
+          <image src='{{item.img}}'></image>
+        </view>
+        <view class='evaluate-box'>
+          <view class='user-name'>{{item.name}}</view>
+          <view class='user-evaluate'>{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='check-all' bindtap='jumpEvaluate'>查看全部</view>
+  </view>
+
+  <view class='good-detail' id="detail">
+    <view class='detail-title'>详情</view>
+    <view class='parse-view'>
+      <template is="wxParse" data="{{wxParseData:abstract.nodes}}"/>
+    </view>
+  </view>
+</scroll-view>
+
+<view class='bottom-btn'>
+  <view class='add-cart' bindtap='addCart'>加入购物车</view>
+  <view class='buy-now' bindtap='buyNow'>立即购买</view>
+</view>

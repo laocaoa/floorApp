@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp();
+let currentNum = 1;
+let listArr = [];
 Page({
   data: {
     // motto: 'Hello World',
@@ -15,8 +17,14 @@ Page({
     iconsItemList: app.globalData.indexItem
   },
   onShow(){
-    this.getBannerList();
-    this.getCompanyList();
+    const that = this;
+    currentNum = 1;
+    listArr = [];
+    that.setData({
+      companyList: [],
+    })
+    that.getBannerList();
+    that.getCompanyList(currentNum);
     // this.getLiveMessage();
   },
   //事件处理函数
@@ -36,9 +44,8 @@ Page({
         })
         break;
       case 1:
-        wx.showToast({
-          title: '敬请期待',
-          icon: 'none'
+        wx.navigateTo({
+          url: '../store/store',
         })
         break;
       case 2:
@@ -58,21 +65,31 @@ Page({
       url: '../search/search',
     })
   },
-  getCompanyList (name) {//获取公司列表
+  getCompanyList (currentNum) {//获取公司列表
     const that = this;
     wx.request({
       url: app.globalUrl.exhibitionList,
       data:{
-        current:1,
+        current: currentNum,
       },
       method:'GET',
       complete(res){
         if(res.data != '' && res.statusCode == 200 && res.data.page.rows.length != 0){
+          for (var i = 0; i < res.data.page.rows.length;i++){
+            listArr.push(res.data.page.rows[i])
+          }
           that.setData({
-            companyList:res.data.page.rows,
+            companyList: listArr
+          },function(){
+            wx.hideLoading();
           })
         }else{
           //无数据处理
+          wx.hideLoading();
+          wx.showToast({
+            title: '暂无更多数据',
+            icon:'none'
+          })
         }
       }
     })
@@ -114,10 +131,6 @@ Page({
   },
   jumpCompanyDe (e) {
     let id = e.currentTarget.dataset.id
-    app.companyId = id;
-    // wx.switchTab({
-    //   url: '../abstract/abstract',
-    // })
     wx.navigateTo({
       url: '../companyDetail/companyDetail?id='+id,
     })
@@ -127,6 +140,20 @@ Page({
    */
   onShareAppMessage: function () {
     title: '最专业的地坪平台!'
+  },
+  //页面上拉触底事件的处理函数
+  onReachBottom: function () {
+    const that = this;
+    console.log("上拉")
+    currentNum++
+    wx.showLoading({
+      title: '玩命加载中',
+      complete() {
+        setTimeout(function () {
+          that.getCompanyList(currentNum);
+        }, 500)
+      }
+    })
   }
   // getLiveMessage() {//获取直播信息
   //   const that = this;
@@ -182,13 +209,5 @@ Page({
   //       }
   //     })
   //   }
-  // },
-  // getUserInfo: function(e) {
-  //   console.log(e)
-  //   app.globalData.userInfo = e.detail.userInfo
-  //   this.setData({
-  //     userInfo: e.detail.userInfo,
-  //     hasUserInfo: true
-  //   })
   // }
 })

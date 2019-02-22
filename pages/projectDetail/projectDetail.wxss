@@ -54,6 +54,9 @@
   margin-top: 30rpx;
   padding: 0 30rpx;
 }
+/* .description image{
+  border-radius: 12rpx;
+} */
 .descriptionContent{
   font-size: 28rpx;
   color: #707070;

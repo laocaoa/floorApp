@@ -1,6 +1,6 @@
 //app.js
-const url = 'https://shrenjun.com';
-// const url = 'http://192.168.31.179:8080'
+// const url = 'https://shrenjun.com';
+const url = 'http://192.168.31.150:8081'
 App({
   // onLaunch: function () {
   //   // 登录
@@ -39,7 +39,23 @@ App({
     liveMessage: url + '/broadcast/broadcastConduct',//获取直播信息
     companyContent: url + '/app/wxgogsjj',//展厅简介
     projectDetail: url + '/app/wxproductDetails',//获取展厅详情
-    jobDetail: url + '/job/wxqueryJobDetail'//获取工作详情
+    jobDetail: url + '/job/wxqueryJobDetail',//获取工作详情
+    storeBannerImg: url + "/app/indexBannerImg ",//商城轮播图
+    dayCrazyShop: url + "/app/dayCrazyShop",//商城每日疯抢 
+    recommendedYou: url + "/app/recommendedYou",//商城为您推荐
+    showAllGoods: url + "/app/showAllGoods",//商城查看所有商品
+    cartList: url + "/app/car/list",//获取购物车列表 
+    addCart: url + "/app/car/addCar",//添加购物车
+    addOrder: url + "/app/order/addOrder",//购物车下订单 
+    storeGoodsDetail: url + "/app/goodsIndexDetail",//商城商品详情首页
+    goodsDetailTxt: url + "/app/goodsDetail",//商城商品详情内容
+    goodsPingJia: url + "/app/goodsPingJia",//获取商品评价
+    getOrderList: url + "/app/order/list",//获取用户订单
+    myAddress: url + "/app/myAddress",//获取用户收货地址
+    insertAddress: url + "/app/insertAddress",//新增收货地址
+    updateAddress: url + "/app/updateAddress",//修改收货地址
+    deleteAddress: url + "/app/deleteAddress",//删除购物车地址
+    pingjiaGoods: url + "/app/pingjiaGoods",//评价商品
   },
   globalData: {
     userInfo: null,
@@ -53,10 +69,9 @@ App({
     ],
     indexItem: [
       { imgUrl: '../../images/zhanting.png', title: '展厅', id:0 },
-      // { imgUrl: '../../images/bianlidian.png', title: '便利店', id:1 },
+      { imgUrl: '../../images/bianlidian.png', title: '便利店', id:1 },
       { imgUrl: '../../images/zhaopin.png', title: '招聘', id:2 },
       // { imgUrl: '../../images/live.png', title: '直播', id:3 }
     ]
-  },
-  companyId:null
+  }
 })

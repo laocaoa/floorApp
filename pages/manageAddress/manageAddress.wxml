@@ -1,0 +1,27 @@
+<!--pages/manageAddress/manageAddress.wxml-->
+<view class='container'>
+  <view class='address-item' wx:for="{{addressList}}" data-id="{{index}}" bindtap='choseAddress'>
+    <view class='address-content'>
+      <view class='address-message'>
+        <view>
+          <text wx:if="{{item.isdefalt==0?true:false}}" class='ifNormal'>默认</text>
+          <text class='user-name'>{{item.username}}</text>
+        </view>
+        <view class='user-phone'>{{item.tel}}</view>
+      </view>
+
+      <view class='address'>{{item.province+item.city+item.address}}</view>
+    </view>
+
+    <view class='edit' bindtap='jumpEditAddress' data-content="{{item}}">
+      <image src='../../images/bianji.png' mode='aspectFit'></image>
+    </view>
+  </view>
+</view>
+
+<view class='add-address' bindtap='jumpAddAddress'>
+  <view hover-class='tap-btn'>
+     十
+     新增地址
+  </view>
+</view>

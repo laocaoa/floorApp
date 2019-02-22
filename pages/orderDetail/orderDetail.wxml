@@ -1,0 +1,59 @@
+<!--pages/noticePage/noticePage.wxml-->
+<view class='container'>
+  <image src='../../images/lan-bg@2x.png' class='bg-img'></image>
+  <view class='notice-container'>
+    <view class='notice-word'>交易成功</view>
+    <image src="{{ifPay?'../../images/bingo.png':'../../images/shalou.png'}}"></image>
+  </view>
+
+  <view class='message-container'>
+    <view class='address-container'>
+        <image src='../../images/location_light@2x.png'></image>
+        <view class='address-content'>
+          <view style='display:flex;justify-content:space-between;'>
+            <text>小迷糊</text>
+            <text style="color:#999;">13855668899</text>
+          </view>
+          <view style='margin-top:12rpx'>吉林省长春市朝阳区南湖街道远创国际A座80室</view>
+        </view>
+    </view>
+  
+    <view class='order-container'>
+        <view class='image-text'>
+            <image src='../../images/huwai.png'></image>
+            <view class='text-word'>
+              <text>红豆杉室内盆景盆栽绿植吸 甲醛净化空气</text>
+              <view class='price-number'>
+                <view class='red-font'>
+                  <text style='font-size:24rpx;'>￥</text>
+                  <text style='font-size:34rpx;'>35</text>
+                </view>
+                <text class='font-hui'>x2</text>
+              </view>
+            </view>
+        </view>
+
+        <view class='size'>
+            <view>
+              <text>商品总价</text>
+              <text>￥70</text>
+            </view> 
+            <view>
+              <text>运费(快递)</text>
+              <text>￥0</text>
+            </view>
+            <view>
+              <text>订单总价</text>
+              <text>￥70</text>
+            </view>
+        </view>
+
+        <view class='btn-container' wx:if="{{ifPay}}">
+          <view>取消订单</view>
+          <view>付款</view>
+        </view>
+    </view>
+  </view>
+</view>
+
+

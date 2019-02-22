@@ -1,0 +1,35 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class='container'>
+  <view class='classify'>
+    <view class='{{isCheck==6?"active":""}}' bindtap='check' data-id="6">全部({{pingjiaSize}})</view>
+    <view class='{{isCheck==5?"active":""}}' bindtap='check' data-id="5">五星({{fiveStar}})</view>
+    <view class='{{isCheck==4?"active":""}}' bindtap='check' data-id="4">四星({{fourStar}})</view>
+    <view class='{{isCheck==3?"active":""}}' bindtap='check' data-id="3">三星({{threeStar}})</view>
+    <view class='{{isCheck==2?"active":""}}' bindtap='check' data-id="2">二星({{twoStar}})</view>
+    <view class='{{isCheck==1?"active":""}}' bindtap='check' data-id="1">一星({{oneStar}})</view>
+  </view>
+
+  <view class='content'>
+    <view class='evaluate-item' wx:for="{{pingjiaList}}">
+      <view class='user-logo'>
+        <image src='{{item.img}}'></image>
+      </view>
+
+      <view class='name-star'>
+        <view class='user-name'>{{item.name}}</view>
+        <view class='star-number'>
+          <image src='../../images/star-check.png' wx:for="{{item.star}}"></image>
+        </view>
+      </view>
+      
+      <view class='evaluate-time'>{{item.createDate}}</view>
+
+      <view class='word'>{{item.content}}</view>
+    </view>
+  </view> 
+</view>
+
+<view class='bottom-btn'>
+  <view class='add-cart' bindtap='addCart'>加入购物车</view>
+  <view class='buy-now' bindtap='buyNow'>立即购买</view>
+</view>

@@ -1,0 +1,74 @@
+/* pages/starGrade/starGrade.wxss */
+page{
+  background: #F1F1F1;
+  padding: 20rpx 20rpx 0;
+  box-sizing: border-box;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+}
+image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.good-img{
+  width: 60rpx;
+  height: 60rpx;
+}
+.star-box{
+  display: flex;
+}
+.content{
+  display: flex;
+  align-items: center;
+  padding: 30rpx 20rpx 40rpx;
+  box-sizing: border-box;
+  background: #fff;
+  justify-content: space-between;
+}
+.star-box image{
+  margin-right: 28rpx;
+}
+.star-box image:last-child{
+  margin: 0;
+}
+textarea{
+  width: 100%;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#333;
+  background: #fff;
+  padding: 0 20rpx 60rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.holder-style{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+}
+.anonymous{
+  padding: 30rpx;
+  display: flex;
+  background: #fff;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.submitEvaluteBtn{
+  padding: 30rpx;
+  display: flex;
+  background: #EB4B2D;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  justify-content: center;
+  color: #fff;
+  border-radius: 6rpx;
+}
+.maxLength{
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+}

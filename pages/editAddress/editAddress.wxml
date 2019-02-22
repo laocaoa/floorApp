@@ -1,0 +1,43 @@
+<!--pages/editAddress/editAddress.wxml-->
+<view class='container'>
+  <view class='address-detail-content'>
+    <view class='message-item'>
+      <input placeholder='收货人' placeholder-class='holder-style' bindinput='writeName' maxlength='10' value='{{username}}'></input>
+      <image src='../../images/person.png'></image>
+    </view>
+
+    <view class='message-item'>
+      <!-- <view>13855668899</view> -->
+      <input placeholder='手机号码' placeholder-class='holder-style' bindinput='writePhoneNumber' maxlength='11' value='{{tel}}'></input>
+    </view>
+
+    <view class='message-item'>
+        <view class="tui-picker-content">
+          <picker bindchange="changeRegin" mode="region" value="{{region}}">
+            <view class="tui-picker-detail">
+              <view>{{region[0]}}</view>
+              <view>{{region[1]}}</view>
+              <view>{{normalprovince}}</view>
+              <view>{{normalCity}}</view>
+            </view>
+          </picker>
+        </view>
+      <image src='../../images/rightarrow.png'></image>
+    </view>
+
+    <view class='message-item'>
+      <textarea placeholder='详细地址：如道路、门牌号、小区、楼栋号、单元室等' placeholder-class='holder-style' bindinput='writeAddress' value='{{address}}'></textarea>
+    </view>
+  </view>
+
+  <view class='message-item handle' bindtap='checkDefault'>
+    <view>设为默认地址</view>
+    <image src='{{ifcheck?"../../images/circle.png":"../../images/circle-check.png"}}'></image>
+  </view>
+  
+  <view class='message-item save' bindtap='saveAddress'>保存</view>
+
+  <view class='message-item handle' hover-class='tap-btn'  bindtap='deleteAddress'>
+    <view class="delete">删除收货地址</view>
+  </view>
+</view>

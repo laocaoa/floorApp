@@ -1,0 +1,270 @@
+<!-- 首页 -->
+<view class='store-content' wx:if="{{num==1?true:false}}">
+  <view class='search-head'>
+    <input placeholder='请输入文字' placeholder-class='holder-style'>
+    <image src="../../images/search_list@2x.png"></image>
+    </input>
+  </view>
+
+  <swiper id="swiper" interval='4000' autoplay indicator-dots indicator-color="#FF3F1D" indicator-active-color="#C63218">
+    <!-- <swiper-item wx:if="{{offlineImg}}">
+        <image src='../../images/bgimg.png'></image>
+      </swiper-item> -->
+    <swiper-item wx:for="{{bannerList}}" wx:key="index">
+      <image src='{{item.bannerImg}}'></image>
+    </swiper-item>
+  </swiper>
+
+  <view class='day-sale'>
+    <view class='sale-left'>
+      <image src="../../images/time@2x.png"></image>
+      <text>每日疯抢</text>
+    </view>
+    <view class='count-down'>
+      <text style='margin-right:6rpx;line-height:25rpx;'>距结束</text>
+      <view>{{hour}}</view>
+      <text class='fenhao'>:</text>
+      <view>{{minute}}</view>
+      <text class='fenhao'>:</text>
+      <view>{{second}}</view>
+    </view>
+  </view>
+  <scroll-view scroll-x class='sale-content'>
+    <view class='sale-goods' wx:for="{{crazyList}}" bindtap='jumpGoodDetail' wx:key="index">
+      <view class='img-box' data-id="{{item.goodsId}}">
+        <image src='{{item.indexImg}}'></image>
+      </view>
+      <view class='good-name'>{{item.name}}</view>
+      <view class="good-price">
+        <view class='true-price'>
+          <text class='big-rmb'>￥</text>
+          <view class='true-price-num'>{{item.sale}}</view>
+        </view>
+        <view class='delete-price'>
+          <text class='small-rmb'>￥</text>
+          <view class='delete-price-num'>{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class='recommend-for-you'>
+    <view class='recommend-head'>
+      <image src='../../images/command.png' mode='aspectFit'></image>
+    </view>
+    <view class='recommend-content'>
+      <view class='recommend-goods-container' wx:for="{{recommendList}}" wx:key="index">
+        <view class='recommend-img-box' bindtap='jumpGoodDetail' data-id="{{item.goodsId}}">
+          <image src='{{item.indexImg}}'></image>
+        </view>
+        <view class='recommend-good-name'>{{item.name}}</view>
+        <view class="recommend-good-price">
+          <view class='recommend-true-price'>
+            <text class='recommend-big-rmb'>￥</text>
+            <view class='recommend-true-price-num'>{{item.goodsHot==0?item.price:item.sale}}</view>
+          </view>
+          <view class='add'>
+            <image src="../../images/jia.png" bindtap='addCart' data-id="{{item.goodsId}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 商品 -->
+<view class='store-goods' wx:if="{{num==2?true:false}}">
+  <view class='recommend-for-you'>
+    <view class='goods-head'>
+      <view>—</view>
+      <view class='goods-word'>全部商品</view>
+      <view>—</view>
+    </view>
+    <view class='recommend-content'>
+      <view class='recommend-goods-container' wx:for="{{allGoods}}" wx:key="index">
+        <view class='recommend-img-box' data-id="{{item.goodsId}}" bindtap='jumpGoodDetail'>
+          <image src='{{item.indexImg}}'></image>
+        </view>
+        <view class='recommend-good-name'>{{item.name}}</view>
+        <view class="recommend-good-price">
+          <view class='recommend-true-price'>
+            <text class='recommend-big-rmb'>￥</text>
+            <view class='recommend-true-price-num'>{{item.goodsHot==0?item.price:item.sale}}</view>
+          </view>
+          <view class='add'>
+            <image src="../../images/jia.png" bindtap='addCart' data-id="{{item.goodsId}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='store-cart' wx:if="{{num==3?true:false}}">
+  <view class='manage-btn' bindtap='hideDeleteBtn'>
+    <view class='manage'>管理</view>
+  </view>
+  <view class="main">
+    <view wx:if="{{hasList}}">
+      <view class="cart-box">
+        <view class="cart-list" wx:for="{{cartList}}" wx:key="{{index}}">
+          <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" data-carId="{{item.id}}" class="cart-pro-select" bindtap="selectList" />
+          <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" data-carId="{{item.id}}" bindtap="selectList" />
+          <image class="cart-thumb" src="{{item.indexImg}}"></image>
+          <view class="cart-pro-name">{{item.goodsName}}</view>
+          <view class="cart-pro-price">
+            <text class="cart-rmb">￥</text>{{item.sale}}</view>
+          <view class="cart-count-box">
+            <view class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</view>
+            <view class="cart-count-num">{{item.carCount}}</view>
+            <view class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</view>
+          </view>
+          <!-- <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text> -->
+        </view>
+      </view>
+
+      <view class="cart-footer">
+        <icon wx:if="{{selectAllStatus}}" type="success" color="#FF0000" class="total-select" bindtap="selectAll" />
+        <icon wx:else type="circle" color="#ccc" class="total-select" bindtap="selectAll" />
+        <view class='clearing' bindtap='jumpClearCart'>结算</view>
+        <text>全选</text>
+        <text class="cart-toatl-price">合计：<text class='sepcil-font'><text class='cart-rmb'>￥</text>{{totalPrice}}</text>
+        </text>
+        <view class='hide-delete-btn' wx:if="{{ifHideBtn}}">
+          <view bindtap='deleteAll'>一键删除</view>
+          <view bindtap='deleteSingle'>删除</view>
+        </view>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="cart-no-data">购物车是空的哦~</view>
+    </view>
+  </view>
+</view>
+
+<!-- 订单 -->
+<view class='store-order' wx:if="{{num==4?true:false}}">
+  <view class='order-head'>
+    <view class='{{titleId==1?"order-all order-active":"order-all"}}' data-tit="1" bindtap='tapOrderTitle'>全部</view>
+    <view class='{{titleId==2?"order-nopay order-active":"order-nopay"}}' data-tit="2" bindtap='tapOrderTitle'>待付款</view>
+    <view class='{{titleId==3?"order-nopay order-active":"order-nopay"}}' data-tit="3" bindtap='tapOrderTitle'>待发货</view>
+    <view class='{{titleId==4?"order-nopay order-active":"order-nopay"}}' data-tit="4" bindtap='tapOrderTitle'>已发货</view>
+    <view class='{{titleId==5?"order-nopay order-active":"order-nopay"}}' data-tit="5" bindtap='tapOrderTitle'>已收货</view>
+    <view class='{{titleId==6?"order-nopay order-active":"order-nopay"}}' data-tit="6" bindtap='tapOrderTitle'>已评价</view>
+  </view>
+  <view class='order-content'>
+    <view class='order-item' wx:for="{{orderList}}">
+      <block wx:for="{{item.shopOrderdetailList}}" wx:for-item="listItme">
+        <image src='{{listItme.indexImg}}'></image>
+        <view class='order-detail'>
+          <view class='order-name'>{{listItme.goodsName}}</view>
+          <view class='order-price'>
+            <view>
+              <text class='order-rmb'>￥</text>
+              <view class='order-now-price'>{{listItme.goodsPrice}}</view>
+            </view>
+            <view>
+              <text>x</text>
+              <view class='order-good-num'>{{listItme.goodsNum}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <view class='handle-box'>
+        <view class='cancle'>取消订单</view>
+        <view class='gopay'>去付款</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 会员 -->
+<view class='store-member' wx:if="{{num==5?true:false}}">
+  <view class='member-top'>
+    <image src='../../images/memberbg.png' class='memberbg'></image>
+    <view class='member-message-container'>
+      <view class='message-container-top'>
+        <view class='message-container-logo'>
+          <image src='../../images/huwai.png'></image>
+          <image src='../../images/memberhead.png'></image>
+        </view>
+        <view class='member-name'>一心想吃火龙果的菠萝</view>
+        <image src='../../images/memberset.png' class='handle-set'></image>
+      </view>
+
+      <view class='center-txt'>我的订单</view>
+
+      <view class='center-order-content'>
+        <view class='flex-container' style='margin-bottom:30rpx;'>
+          <view>
+            <text>全部</text>
+            <image src='../../images/quanbu.png'></image>
+          </view>
+          <view>
+            <text>待付款</text>
+            <image src='../../images/daifukuan.png'></image>
+          </view>
+          <view>
+            <text>待发货</text>
+            <image src='../../images/resoving.png'></image>
+          </view>
+        </view>
+        <view class='flex-container'>
+          <view>
+            <text>已发货</text>
+            <image src='../../images/yifahuo.png'></image>
+          </view>
+          <view>
+            <text>已收货</text>
+            <image src='../../images/yichenggong.png'></image>
+          </view>
+          <view>
+            <text>已评价</text>
+            <image src='../../images/yipingjia.png'></image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class='member-bottom'>
+    <view class='member-bottom-item' bindtap='jumpManageAddress'>
+      <image src="../../images/memberlocal.png"></image>
+      <view>地址管理</view>
+    </view>
+
+    <view class='member-bottom-item'>
+      <image src='../../images/memberexit.png'></image>
+      <view>退出账号</view>
+    </view>
+  </view>
+</view>
+
+<!-- tabbar -->
+<view class='self-tabbar'>
+  <view class='tab-store tab' data-num='1' bindtap='checkBar'>
+    <image src="{{num == 1?'../../images/store-active.png':'../../images/store.png'}}"></image>
+    <view class='{{num==1?"tabbar-word active":"tabbar-word"}}'>首页</view>
+  </view>
+
+  <view class='tab-goods tab' data-num='2' bindtap='checkBar'>
+    <image src="{{num == 2?'../../images/goods-active.png':'../../images/goods.png'}}"></image>
+    <view class='{{num==2?"tabbar-word active":"tabbar-word"}}'>商品</view>
+  </view>
+
+  <view class='tab-car tab' data-num='3' bindtap='checkBar'>
+    <image src="{{num == 3?'../../images/car-active.png':'../../images/car.png'}}"></image>
+    <view class='{{num==3?"tabbar-word active":"tabbar-word"}}'>购物车</view>
+  </view>
+
+  <view class='tab-order tab' data-num='4' bindtap='checkBar'>
+    <image src="{{num == 4?'../../images/order-active.png':'../../images/order.png'}}"></image>
+    <view class='{{num==4?"tabbar-word active":"tabbar-word"}}'>订单</view>
+  </view>
+
+  <view class='tab-mine tab' data-num='5' bindtap='checkBar'>
+    <image src="{{num == 5?'../../images/mine-active.png':'../../images/mine.png'}}"></image>
+    <view class='{{num==5?"tabbar-word active":"tabbar-word"}}'>会员</view>
+  </view>
+</view>

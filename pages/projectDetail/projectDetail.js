@@ -54,7 +54,6 @@ Page({
         productId: id
       },
       success(res) {
-        console.log(res)
         that.setData({
           img_url: res.data.sysCase.img_url
         })

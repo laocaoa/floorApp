@@ -1,0 +1,61 @@
+/* pages/editAddress/editAddress.wxss */
+page{
+  background: #f1f1f1;
+  padding: 20rpx 20rpx 0;
+  box-sizing: border-box;
+}
+.container{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+input{
+  width: 100%;
+}
+.container image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.address-detail-content{
+  /* padding-bottom: 30rpx;
+  background: skyblue; */
+}
+.specil{
+  line-height: 46rpx;
+}
+.message-item{
+  box-sizing: border-box;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #F1F1F1;
+  background: #fff;
+  align-items: center;
+}
+.handle{
+  margin-top: 20rpx;
+}
+.delete{
+  color: #E61B00;
+}
+.tap-btn{
+  background: #e1e1e1!important;
+}
+.tui-picker-content{
+  width: 100%;
+  line-height: 48rpx;
+}
+textarea{
+  height: 70rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.save{
+  justify-content: center;
+  margin-top: 20rpx;
+  background: #EB4B2D;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+}

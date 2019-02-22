@@ -1,0 +1,71 @@
+/* pages/noticePage/noticePage.wxss */
+page{
+  background: #F1F1F1;
+  box-sizing: border-box;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+}
+.container{
+  position: relative;
+}
+.bg-img{
+  width: 100%;
+  height: 370rpx;
+}
+.notice-container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 120rpx;
+  width: 400rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.notice-container image{
+  width: 88rpx;
+  height: 88rpx; 
+}
+.notice-word{
+  padding-left: 46rpx;
+}
+.notice-word .title{
+  font-size: 48rpx;
+}
+.notice-word .content{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.btn-container{
+  background: #fff;
+  width: 710rpx;
+  position: absolute;
+  bottom: -150rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  padding: 60rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.btn-container view{
+  width:262rpx;
+  height:88rpx;
+  font-size: 28rpx;
+  border-radius:10rpx; 
+  text-align: center;
+  line-height: 88rpx;
+}
+.btn-container view:first-child{
+  background: #F1F1F1;
+}
+.btn-container view:last-child{
+  background: #EB4B2D;
+  color: #fff;
+}

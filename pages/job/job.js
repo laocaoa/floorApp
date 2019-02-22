@@ -33,7 +33,6 @@ Page({
         rowCount: 10
       },
       success (res) {//请求成功，需判断是否有数据，数据是否正确
-      console.log(res)
         if(res.statusCode == 200){
           if(res.data.rows.length == 0){//判断返回的数组是否为空
             if(current ==1 ){//判断是否为当前项第一页
@@ -109,7 +108,6 @@ Page({
   // 跳转详情页面
   jumpDetail (e) {
     let id = e.currentTarget.dataset.id;//获取自定义属性
-    console.log(id)
     wx.navigateTo({
       url: '../jobDetail/jobDetail?id='+ id,
     })
